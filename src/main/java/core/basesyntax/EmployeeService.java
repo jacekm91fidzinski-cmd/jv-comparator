@@ -13,7 +13,12 @@ public class EmployeeService {
                         .thenComparing(Employee::getName);
 
         Set<Employee> sortedEmployees = new TreeSet<>(comparator);
-        sortedEmployees.addAll(employees);
+
+        for (Employee employee : employees) {
+            if (employee != null) {
+                sortedEmployees.add(employee);
+            }
+        }
 
         return sortedEmployees;
     }
